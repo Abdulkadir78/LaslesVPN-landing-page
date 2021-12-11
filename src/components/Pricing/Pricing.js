@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { StyledPricing, CardContainer } from "../styled/Pricing.styled";
 import freePlanImg from "../../assets/images/free-plan.svg";
 import standardPlanImg from "../../assets/images/standard-plan.svg";
@@ -44,6 +46,12 @@ const plans = [
 ];
 
 function Pricing() {
+  const [checkedIndex, setCheckedIndex] = useState(-1);
+
+  const handleCheck = (newIndex) => {
+    setCheckedIndex((prevIndex) => (prevIndex !== newIndex ? newIndex : -1));
+  };
+
   return (
     <StyledPricing id="pricing">
       <h1>Choose Your Plan</h1>
@@ -55,7 +63,13 @@ function Pricing() {
 
       <CardContainer>
         {plans.map((plan, index) => (
-          <PricingCard key={index} plan={plan} selected={index === 2} />
+          <PricingCard
+            key={index}
+            plan={plan}
+            index={index}
+            selected={checkedIndex === index}
+            handleCheck={handleCheck}
+          />
         ))}
       </CardContainer>
     </StyledPricing>

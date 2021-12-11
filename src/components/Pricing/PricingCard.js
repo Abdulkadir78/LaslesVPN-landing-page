@@ -1,7 +1,7 @@
 import { Card, CardTitle } from "../styled/Pricing.styled";
 import Button from "../styled/Button.styled";
 
-function PricingCard({ plan, selected }) {
+function PricingCard({ plan, index, selected, handleCheck }) {
   return (
     <Card selected={selected}>
       <img src={plan.image} alt="Plan" />
@@ -15,8 +15,12 @@ function PricingCard({ plan, selected }) {
 
       <h3>{plan.price === 0 ? "Free" : `$${plan.price} / mo`}</h3>
 
-      <Button outlined style={{ width: "60%", alignSelf: "center" }}>
-        Select
+      <Button
+        outlined={!selected}
+        onClick={() => handleCheck(index)}
+        style={{ width: "60%", alignSelf: "center" }}
+      >
+        {selected ? "Unselect" : "Select"}
       </Button>
     </Card>
   );

@@ -52,11 +52,9 @@ const Card = styled.div`
   margin-bottom: 30px;
   padding: 80px 0 50px;
   background-color: #fff;
-
-  border: 2px
-    ${({ theme, selected }) => (selected ? theme.colors.primary : "#dddddd")}
-    solid;
   border-radius: 10px;
+  border: 2px
+    ${({ theme, selected }) => (selected ? theme.colors.primary : "#ddd")} solid;
 
   img {
     width: 145px;
