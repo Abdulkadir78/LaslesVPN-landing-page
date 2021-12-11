@@ -1,0 +1,8 @@
+.slick-slider {
+  position: relative;
+  z-index: 1;
+}
+
+.slick-active .carousel-dot {
+  background-color: #f53838;
+}
